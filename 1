@@ -1,0 +1,26 @@
+---
+- name: install and configure Apache
+  hosts: web
+  become: yes
+  become_user: vagrant
+
+  vars:
+    become_ansible_pass: "vagrant"
+
+  tasks:
+    - name: install httpd
+      ansible.builtin.yum:
+        name: httpd
+        state: present
+        
+    - name: copy index.html
+      ansible.builtin.copy:
+        src: index.html
+        dest: /var/www/html/index.html
+
+    - name: start httpd
+      ansible.builtin.service:
+        name: httpd
+        state: started
+...
+
