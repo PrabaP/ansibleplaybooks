@@ -4,7 +4,7 @@
   become: yes
 
   vars:
-    become_ansible_pass: "vagrant"
+    become_ansible_password: "vagrant"
 
   tasks:
     - name: install tomcat
