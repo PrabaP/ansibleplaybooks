@@ -1,10 +1,10 @@
 ---
-- name: Install and configure Tomcat
+- name: Install and configure Tomcat - 2022
   hosts: 192.168.2.30
   become: yes
 
   vars:
-    become_ansible_password: "vagrant"
+    ansible_become_password: "vagrant"
 
   tasks:
     - name: install tomcat
