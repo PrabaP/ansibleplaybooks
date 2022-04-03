@@ -4,7 +4,7 @@
   become: yes
 
   vars:
-    become_ansible_pass: "vagrant"
+    ansible_become_password: "{{ mypass }}"
 
   tasks:
     - name: install tomcat
@@ -23,8 +23,8 @@
 
     - name: copy install_tomcat.yml file
       ansible.builtin.copy:
-        src: tomcat.users.xml
-        dest: /usr/share/tomcat/conf/tomcat.users.xml
+        src: tomcat-users.xml
+        dest: /usr/share/tomcat/conf/tomcat-users.xml
         group: tomcat
         mode: 0644
     
